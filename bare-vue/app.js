@@ -11,9 +11,22 @@ const app = Vue.createApp({
     // data is a function
     data() {
         return {
-            title: 'The Final Empire', // a dynamic changing value. 
-            author: 'Brandon Sanderson',
-            age: 45,
+            books: [
+                {
+                    title: 'The Final Empire',
+                    author: 'Brandon Sanderson',
+                },
+
+                {
+                    title: 'The Way Of Kings',
+                    author: 'Brandon Sanderson',
+                },
+
+                {
+                    title: 'Name Of The Wind',
+                    author: 'Patrick Rothfuss',
+                },
+            ],
             showBooks: false,
             x: 0,
             y: 0,
