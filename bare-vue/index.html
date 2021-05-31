@@ -60,7 +60,7 @@
         <!--lesson: toggles and loops-->
         <div v-show="showBooks">
             <ul>
-                <li v-for="(book, index) in books" :class="{fav: book.isFav}" @click="toggleFavBook(index)">
+                <li v-for="book in books" :class="{fav: book.isFav}" @click="toggleFav(book)">
                     <img :src="book.img" :alt="book.title">
                     <h3>{{book.title}}</h3>
                     <p>{{book.author}}</p>
