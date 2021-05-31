@@ -16,16 +16,19 @@ const app = Vue.createApp({
                     title: 'Name Of The Wind',
                     author: 'Patrick Rothfuss',
                     img: 'assets/1.jpeg',
+                    isFav: true,
                 },
                 {
                     title: 'The Way Of Kings',
                     author: 'Brandon Sanderson',
                     img: 'assets/2.jpeg',
+                    isFav: false,
                 },
                 {
                     title: 'The Final Empire',
                     author: 'Brandon Sanderson',
                     img: 'assets/3.jpeg',
+                    isFav: true,
                 },
             ],
             showBooks: false,
@@ -45,6 +48,9 @@ const app = Vue.createApp({
         handleMousemove(evt) {
             this.x = evt.offsetX;
             this.y = evt.offsetY;
+        },
+        toggleFavBook(index) {
+            this.books[index].isFav = !this.books[index].isFav;
         }
     },
 
