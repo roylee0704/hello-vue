@@ -1,14 +1,11 @@
 
+// - template data 
+// - component methods (it reacts to events) 
+// - computed prop
 const app = Vue.createApp({
-    // template: '<h2>I am the template</h2>',
+    // lesson 0 - template: '<h2>I am the template</h2>',
 
-
-
-
-
-    // data + component methods (it reacts to events)
-
-    // data is a function
+    // lesson 1 - data is a function
     data() {
         return {
             books: [
@@ -37,7 +34,7 @@ const app = Vue.createApp({
         }
     },
 
-    // component method is an prop
+    // lesson 2 - component method is an prop
     methods: {
         toggleShowBooks() {
             this.showBooks = !this.showBooks;
@@ -55,6 +52,13 @@ const app = Vue.createApp({
         }
     },
 
+    // lesson 3 - computed prop depends on the data (above). 
+    // its another layer of dynamicity on top of data.
+    computed: {
+        filteredBooks() {
+            return this.books.filter((book) => book.isFav);
+        }
+    }
 
 });
 
