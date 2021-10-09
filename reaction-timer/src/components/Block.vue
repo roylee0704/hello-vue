@@ -42,7 +42,8 @@ export default {
   text-align: center;
   color: white;
   width: 400px;
-  background-color: green;
+  background-color: #0faf87;
   margin: 40px auto;
+  font-weight: bold;
 }
 </style>
