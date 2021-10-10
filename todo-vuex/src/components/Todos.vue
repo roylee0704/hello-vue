@@ -4,6 +4,11 @@
   <div class="todos">
     <div class="todo" v-for="todo in allTodos" :key="todo.id">
       {{ todo.title }}
+      <font-awesome-icon
+        class="icon"
+        :icon="['fas', 'trash']"
+        @click="onDelete(todo.id)"
+      />
     </div>
   </div>
 </template>
@@ -17,7 +22,10 @@ export default {
     ...mapGetters(["allTodos"])
   },
   methods: {
-    ...mapActions(["fetchTodos"])
+    ...mapActions(["fetchTodos", "deleteTodo"]),
+    onDelete: function(id) {
+      this.deleteTodo(id);
+    }
   },
   created() {
     this.fetchTodos();
@@ -37,5 +45,9 @@ export default {
   padding: 1rem;
   text-align: center;
   border-radius: 5px;
+}
+
+.icon {
+  cursor: pointer;
 }
 </style>
