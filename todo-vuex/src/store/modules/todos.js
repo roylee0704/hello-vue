@@ -22,7 +22,7 @@ const getters = {
 const actions = {
   async fetchTodos({ commit }) {
     const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos" //?_limit=5
+      "https://jsonplaceholder.typicode.com/todos"
     );
     commit("setTodos", response.data);
   },
@@ -37,7 +37,14 @@ const actions = {
     await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
     commit("removeTodo", id);
   },
+  async limitTodos({ commit }, limit) {
+    const response = await axios.get(
+      `https://jsonplaceholder.typicode.com/todos?_limit=${limit}`
+    );
+    commit("setTodos", response.data);
+  },
 };
+
 const mutations = {
   setTodos: (state, todos) => {
     state.todos = todos;
