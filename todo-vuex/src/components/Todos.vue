@@ -1,12 +1,41 @@
 <template>
-  <div>Todos</div>
+  <h3>Todos</h3>
+
+  <div class="todos">
+    <div class="todo" v-for="todo in allTodos" :key="todo.id">
+      {{ todo.title }}
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
-  name: "Todos"
+  name: "Todos",
+  computed: {
+    ...mapGetters(["allTodos"])
+  },
+  methods: {
+    ...mapActions(["fetchTodos"])
+  },
+  created() {
+    this.fetchTodos();
+  }
 };
 </script>
 
-<style>
+<style scoped>
+.todos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.todo {
+  border: 1px solid black;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+}
 </style>

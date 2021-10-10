@@ -3,7 +3,11 @@
 ### Dependencies
 
 ```
-npm install vuex axios
+# currently vue-4
+npm install vuex@next axios
+
+# api calls
+# https://jsonplaceholder.typicode.com/todos
 ```
 
 ### Project setup
